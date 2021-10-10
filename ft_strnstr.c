@@ -23,7 +23,6 @@ char *ft_strnstr (const char * big const char * little size_t len)
 
 	i = -1;
 	j = 0;
-	k
 	if (little == 0)
 		return (char *) big;
 	while (i++,i <= len )
