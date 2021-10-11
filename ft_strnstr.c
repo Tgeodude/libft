@@ -1,3 +1,5 @@
+#include "libft.h"
+
 int find_lit(char *big, char *little, int a)
 {
 	int i;
@@ -14,7 +16,7 @@ int find_lit(char *big, char *little, int a)
 	return(0);
 }
 
-char *ft_strnstr (const char * big const char * little size_t len)
+char *ft_strnstr (const char *big, const char *little, size_t len)
 {
 	unsigned char tmp;
 	size_t i;
@@ -29,9 +31,8 @@ char *ft_strnstr (const char * big const char * little size_t len)
 	{
 		if (big[i] == little[j])
 			k = find_lit(big[i],little[j],ft_strlen(little));
-		if(k == ft_strlen(little) && big[i])
-			return(k)
-		else 
-			return(0);
+		if (k == ft_strlen(little) && big[i])
+			return(k);
 	}
+	return (0);
 }
