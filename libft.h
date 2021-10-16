@@ -1,8 +1,10 @@
 #ifndef LIBFT_H
+#include <stdio.h>
 #define LIBFT_H
 
-#include <stddef.h>
-
+char *ft_substr(char const *s, unsigned int start, size_t len);
+char *ft_strdup(const char *s);
+char *ft_kek(const char *big, const char *little, size_t len);
 void ft_bzero(void *s, size_t n);
 void *ft_memchr(const void *s, int c, size_t n);
 void *ft_memcpy(void *dest, const void *src, size_t len);
