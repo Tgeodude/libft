@@ -2,13 +2,7 @@
 
 int ft_tolower(int c)
 {
-	unsigned char tmp;
-
-	tmp = c;
-	if (tmp > 64 && tmp < 91 )
-		return (tmp + 32);
-}
-int main ()
-{
-	printf("%c\n", ft_tolower('9'));
+	if (c > 64 && c < 91 )
+		return (c + 32);
+	return(c);
 }

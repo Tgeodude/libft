@@ -9,12 +9,9 @@ char *ft_strchr(const char *string, int symbol)
 	{
 		if(*string == tmp)
 			return (char *)string;
-		*string++;
+		string++;
 	}
-}
-int main ()
-{
-	char lotr[] = "_-=Властелин к0лец=-_";
-	char * ring = ft_strchr(lotr,'0');
-	printf("%c",*ring);
+	if(symbol == '\0')
+		return (char *)(string + ft_strlen(string));
+	return(0);
 }

@@ -4,7 +4,7 @@
 
 char *ft_strjoin(char const *s1, char const *s2)
 {
-	unsigned char *s3;
+	char *s3;
 	size_t i;
 	size_t j;
 
@@ -22,8 +22,4 @@ char *ft_strjoin(char const *s1, char const *s2)
 	}
 	s3[i] = 0;
 	return(s3);
-}
-int main()
-{
-	printf("%s",ft_strjoin("Hello"," world"));
 }

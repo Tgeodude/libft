@@ -1,43 +1,41 @@
+#include <stdio.h>
 #include "libft.h"
 
-int find_lit(char *big, char *little, int a)
+int cmp(char s1, char s2)
 {
-	int k;
-
-	k = 0;
-	while (big[k] == little[k])
-		k++;
-	if (k == a)
-		return(k);
+	if(s1 == s2)
+		return(1);
 	return(0);
 }
 
-char *ft_strnstr (const char *big, const char *little, size_t len)
+char *ft_strnstr(const char * big,const char * little, size_t len)
 {
-	unsigned char tmp;
 	size_t i;
 	size_t j;
-	int k;
+	size_t k;
 
 	i = -1;
 	j = 0;
+	k = 0;
 	if (ft_strlen(little) == 0)
-		return (char *) big;
-	while (i++,big[i])
+		return(char *) big;
+	while(i++,i < len)
 	{
-		if (big[i] == little[j])
-			k = find_lit((char *)(big + (i)),(char *)(little + (j)),ft_strlen(little));
-		if (k == ft_strlen(little))
-			return (char *) little;
-	}
-	return (0);
-}
-int main()
-{
-	const char *largestring = "Foo Bar Baz";
-	const char *smallstring = "Foo";
-	char *ptr;
+		while(big[i] == little[j] && big[i] && i < len)
+		{
+			if (cmp(big[i],little[j]) == 1)
+				k++;
+			j++;
+			i++;
+		}
+		if(k == ft_strlen(little))
+			return(char *) (big + i - j);
+		else
+		{
+			k = 0;
+			j = 0;
+		}
 
-	ptr = ft_strnstr(largestring, smallstring, 3);
-	printf("%s\n",ptr);
+	}
+	return(0);
 }

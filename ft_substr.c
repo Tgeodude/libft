@@ -4,7 +4,7 @@
 
 char *ft_substr(char const *s, unsigned int start, size_t len)
 {
-	unsigned char *s2;
+	char *s2;
 	size_t i;
 
 	i = -1;
@@ -17,8 +17,4 @@ char *ft_substr(char const *s, unsigned int start, size_t len)
 		start++;
 	}
 	return (s2);
-}
-int main ()
-{
-	printf("%s", ft_substr("Hello",2,5));
 }

@@ -3,7 +3,7 @@
 char *ft_strrchr(const char *s, int c)
 {
 	unsigned char tmp;
-	size_t i;
+	int i;
 
 	i = 0;
 	while (s[i])
@@ -12,10 +12,7 @@ char *ft_strrchr(const char *s, int c)
 	while (i--,i != -1)
 		if(s[i] == tmp)
 			return (char *) (s+i);
-}
-int main ()
-{
-	char lotr[] = "_-=Властелин к0лец=-_";
-	char * ring = ft_strrchr(lotr,'0');
-	printf("%c",*ring);
+	if(c == '\0')
+		return (char *)(s + ft_strlen(s));
+	return(0);
 }

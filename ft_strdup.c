@@ -4,7 +4,7 @@
 
 char *ft_strdup(const char *s)
 {
-	unsigned char *s2;
+	char *s2;
 	size_t i;
 
 	i = -1;
@@ -12,8 +12,4 @@ char *ft_strdup(const char *s)
 	while (i++,s[i])
 		s2[i] = s[i];
 	return (s2);
-}
-int main ()
-{
-	printf("%s",ft_strdup("Hello"));
 }
