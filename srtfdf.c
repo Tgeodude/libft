@@ -18,8 +18,9 @@ static size_t ft_quantity(char const *s, char c)
 			i++;
 		k++;
 	}
-	return(k);
+	return(k + 1);
 }
+
 static size_t ft_word(char const *s, char c)
 {
 	size_t	i;
@@ -48,7 +49,6 @@ static void ft_free(char **s1, size_t k)
 	i = -1;
 	while (i++, i < k)
 		free(s1[i]);
-	free(s1);
 }
 
 char **ft_split(char const *s, char c)
@@ -60,10 +60,9 @@ char **ft_split(char const *s, char c)
 	if(!s)
 		return (NULL);
 	k = -1;
-	s1 = malloc((ft_quantity(s,c) + 1) * sizeof(char *));
+	s1 = malloc((ft_quantity(s,c)) * sizeof(char *));
 	if(!s1)
 		return (NULL);
-	s1[ft_quantity(s,c)] = NULL;
 	while (k++, s1[k])
 	{
 		i = -1;
@@ -81,5 +80,6 @@ char **ft_split(char const *s, char c)
 		}
 		s1[k][i] = '\0';
 	}
+	s1[k] = NULL;
 	return (s1);
 }
