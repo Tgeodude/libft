@@ -1,43 +1,76 @@
-int ft_sp(char const *s,char c)
+#include <stdio.h>
+#include <stdlib.h>
+#include "libft.h"
+
+size_t ft_quantity(char const *s, char c)
 {
 	size_t	i;
 	size_t	k;
 
-	k = 0;
 	i = -1;
+	k = 0;
+	while(s[i] == c)
+		i++;
+	if(!s[i])
+		return (1);
 	while(i++,s[i])
 	{
-		if(s[i] == c)
-			k++;
+		while(s[i] == c)
+			i++;
+		if (s[i] == '\0')
+			return(k);
+		while(s[i] != c && s[i])
+			i++;
+		k++;
 	}
-	return(k);
+	return (k);
 }
 
-char *ft_word(char const *s, char c)
+size_t ft_word(char const *s, char c)
 {
 	size_t	i;
-	char wrd;
 
-	i = 0;
-	while(s[i] != c)
-		i++;
-	wrd = malloc(i * sizeof(char));
 	i = -1;
-	while(i++,s[i] != c)
-		wrd[i] = s[i];
-	return(wrd);
-	free(wrd);
+	while(i++,s[i] != c && s[i])
+		i++;
+	return (i);
+}
+
+void ft_free(char **s1, int k) 
+{
+	int	i;
+
+	i = -1;
+	while (i++, i < k)
+        free(s1[k]);
+    free(s1);
 }
 
 char **ft_split(char const *s, char c)
 {
+	size_t	i;
 	size_t	k;
+	size_t	j;
 	char **s1;
 
-	k = -1;
-	s1 = malloc((ft_sp(s,c) + 1) * sizeof(char));
-	while(s[k] <= ft_sp(s,c))
+	i = 0;
+	k = ft_quantity(s,c);
+	s1 = malloc(k * sizeof(char));
+	k = 0;
+	while (s[i])
 	{
-		*s[k] = ft_word(s,c);
+		while(s[i] == c)
+			i++;
+		j = ft_word(s,c);
+		s1[k] = malloc((j+1) * sizeof(char));
+		while (i++,i < j)
+			 s1[k][i] = s[i];
+		s1[k][i] = '\0';
+		k++;
+		s += i;
+		if(s[i] != '\0')
+			i = 0;
 	}
+	//ft_free(s1,k--);
+	return (s1);
 }
