@@ -10,12 +10,13 @@ int	ft_atoi(const char *str)
 	i = 1;
 	while ((*str) == ' ' || ((*str) >= '\t' && (*str) <= '\r'))
 		str++;
-	while ((*str) == '-' || (*str) == '+')
+	if((*str) == '-')
 	{
-		if ((*str) == '-')
-			i *= -1;
+		i = -1;
 		str++;
 	}
+	if((*str == '-'))
+		str++;
 	while ((*str) >= '0' && (*str) <= '9')
 	{
 		h = (h * 10) + ((*str) - '0');
