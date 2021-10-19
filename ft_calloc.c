@@ -9,7 +9,7 @@ void * ft_calloc( size_t number, size_t size )
 
 	i = -1;
 	array = malloc(size * number);
-	while(i++ < size)
-		array[i] = '1';
+	while(i++,i < size)
+		array[i] = '0';
 	return(array);
 }
