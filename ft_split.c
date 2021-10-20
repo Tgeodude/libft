@@ -29,7 +29,7 @@ static size_t ft_word(char const *s, char c)
 	j = 0;
 	while(s[i])
 	{
-		while (s[i] == c)
+		while (s[i] == c && s[i])
 		{
 			i++;
 			j++;
@@ -41,14 +41,18 @@ static size_t ft_word(char const *s, char c)
 	return(0);
 }
 
-static void ft_free(char **s1, size_t k)
+static void *ft_free(char **s1)
 {
-	size_t i;
+	size_t	i;
 
-	i = -1;
-	while (i++, i < k)
+	i = 0;
+	while (s1[i])
+	{
 		free(s1[i]);
+		i++;
+	}
 	free(s1);
+	return (NULL);
 }
 
 char **ft_split(char const *s, char c)
@@ -56,30 +60,31 @@ char **ft_split(char const *s, char c)
 	char **s1;
 	size_t	k;
 	size_t	i;
+    size_t  j;
 
 	if(!s)
 		return (NULL);
 	k = -1;
-	s1 = malloc((ft_quantity(s,c) + 1) * sizeof(char *));
+    j = ft_quantity(s,c);
+	s1 = malloc((j + 1) * sizeof(char *));
 	if(!s1)
 		return (NULL);
-	s1[ft_quantity(s,c)] = NULL;
-	while (k++, s1[k])
+	while (k++, k < j)
 	{
-		i = -1;
-		s1[k] = malloc((ft_word(s,c) + 1) * sizeof(char));
+        i = -1;
+        s1[k] = malloc((ft_word(s,c) + 1));
 		if (!s1[k])
-		{
-			ft_free(s1, (k+1));
-			return (NULL);
-		}
+			return (ft_free(s1));
 		while(i++,i < ft_word(s,c))
 		{
-			while(*s == c)
+			while(*s == c && *s)
 				s++;
 			s1[k][i] = s[i];
 		}
 		s1[k][i] = '\0';
+		while(*s != c && *s)
+			s++;
 	}
+    s1[j] = NULL;
 	return (s1);
 }
