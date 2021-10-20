@@ -3,19 +3,19 @@
 
 int	ft_atoi(const char *str)
 {
-	int	i;
-	int	h;
+	size_t	i;
+	size_t	h;
 
 	h = 0;
 	i = 1;
 	while ((*str) == ' ' || ((*str) >= '\t' && (*str) <= '\r'))
 		str++;
-	if((*str) == '-')
+	if ((*str) == '-')
 	{
 		i = -1;
 		str++;
 	}
-	if((*str == '-'))
+	if ((*str == '-'))
 		str++;
 	while ((*str) >= '0' && (*str) <= '9')
 	{
