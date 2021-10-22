@@ -3,6 +3,7 @@
 /*                                                        :::      ::::::::   */
 /*   ft_atoi.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
+<<<<<<< HEAD
 /*   By: user <tgeodude@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/21 23:32:39 by tgeodude              #+#    #+#             */
@@ -11,12 +12,21 @@
 /* ************************************************************************** */
 
 
+=======
+/*   By: tgeodude <marvin@42.fr>                    +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2021/10/22 17:08:08 by tgeodude          #+#    #+#             */
+/*   Updated: 2021/10/22 17:10:56 by tgeodude         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
+>>>>>>> f4b237ba32a812fb0a6f2b9894679fcbee9e4ebe
 #include "libft.h"
 
 int	ft_atoi(const char *str)
 {
-	size_t	i;
-	size_t	h;
+	int	i;
+	int	h;
 
 	h = 0;
 	i = 1;
@@ -33,5 +43,5 @@ int	ft_atoi(const char *str)
 		h = (h * 10) + ((*str) - '0');
 		str++;
 	}
-	return (int)(h * i);
+	return (h * i);
 }
