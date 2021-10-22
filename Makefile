@@ -52,7 +52,7 @@ NAME = libft.a
 
 all: $(NAME)
 
-$(NAME): $(OBJ)
+$(NAME): $(OBJ) libft.h Makefile
 	ar rc $(NAME) $(OBJ)
 
 clean:
@@ -65,9 +65,5 @@ re: fclean all
 
 bonus: $(OBJ) $(BONUS_OBJ)
 	ar rc $(NAME) $(OBJ) $(BONUS_OBJ)
-
-so:
-	$(CC) -nostartfiles -fPIC $(CFLAGS) $(SRC)
-	gcc -nostartfiles -shared -o libft.so $(OBJ)
 
 .PHONY: all clean fclean re bonus

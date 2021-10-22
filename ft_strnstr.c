@@ -8,7 +8,7 @@ int cmp(char s1, char s2)
 	return(0);
 }
 
-char *ft_strnstr(const char * big,const char * little, size_t len)
+char	*ft_strnstr(const char *haystack, const char *needle, size_t len)
 {
 	size_t i;
 	size_t j;
@@ -17,19 +17,19 @@ char *ft_strnstr(const char * big,const char * little, size_t len)
 	i = -1;
 	j = 0;
 	k = 0;
-	if (ft_strlen(little) == 0)
-		return(char *) big;
+	if (ft_strlen(needle) == 0)
+		return(char *) haystack;
 	while(i++,i < len)
 	{
-		while(big[i] == little[j] && big[i] && i < len)
+		while(haystack[i] == needle[j] && haystack[i] && i < len)
 		{
-			if (cmp(big[i],little[j]) == 1)
+			if (cmp(haystack[i],needle[j]) == 1)
 				k++;
 			j++;
 			i++;
 		}
-		if(k == ft_strlen(little))
-			return(char *) (big + i - j);
+		if(k == ft_strlen(needle))
+			return(char *) (haystack + i - j);
 		else
 		{
 			k = 0;

@@ -6,15 +6,20 @@ char *ft_substr(char const *s, unsigned int start, size_t len)
 {
 	char *s2;
 	size_t i;
-
-	i = -1;
-	s2 = malloc(len * sizeof(unsigned char));
-	if (s2 == 0)
+	if (!s)
 		return (NULL);
-	while (i++,s[start])
+	if (!len || start >= ft_strlen(s))
+		return (ft_strdup(""));
+	s2 =(char *)malloc(len + 1);
+	if (!s2)
+		return (NULL);
+	i = 0;
+	while  (i < len && s[start])
 	{
 		s2[i] = s[start];
 		start++;
+		i++;
 	}
+	s2[i] = '\0';
 	return (s2);
 }

@@ -8,10 +8,11 @@ char *ft_strdup(const char *s)
 	size_t i;
 
 	i = -1;
-	s2 = malloc(ft_strlen(s) * sizeof(char));
+	s2 = malloc(ft_strlen(s) + 1);
 	if (!s2)
 		return (NULL);
 	while (i++,s[i])
 		s2[i] = s[i];
+	s2[i] = '\0';
 	return (s2);
 }
