@@ -53,7 +53,7 @@ char *ft_strtrim(char const *s1, char const *set)
 	int i;
 
 	i = -1;
-	s2 = malloc((ft_strlen - ft_head(s1,set) - (ft_strlen - ft_end(s1,set))) * sizeof(char));
+	s2 = malloc((ft_strlen - ft_head(s1,set) - (ft_strlen - ft_end(s1,set))));
 	if(ft_head(s1,set) > 0)
 	s1 = s1 + ft_head(s1,set);
 	while (i++,i <= ft_end(s1,set))
