@@ -1,10 +1,21 @@
-#include <stdio.h>
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   ft_atoi.c                                          :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: tgeodude <marvin@42.fr>                    +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2021/10/22 17:08:08 by tgeodude          #+#    #+#             */
+/*   Updated: 2021/10/22 17:10:56 by tgeodude         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "libft.h"
 
 int	ft_atoi(const char *str)
 {
-	size_t	i;
-	size_t	h;
+	int	i;
+	int	h;
 
 	h = 0;
 	i = 1;
@@ -12,7 +23,7 @@ int	ft_atoi(const char *str)
 		str++;
 	if ((*str) == '-' || (*str) == '+')
 	{
-		if((*str == '-'))
+		if ((*str == '-'))
 			i = -1;
 		str++;
 	}
@@ -21,5 +32,5 @@ int	ft_atoi(const char *str)
 		h = (h * 10) + ((*str) - '0');
 		str++;
 	}
-	return (int)(h * i);
+	return (h * i);
 }
