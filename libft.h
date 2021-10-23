@@ -1,6 +1,10 @@
 #ifndef LIBFT_H
-#include <stdio.h>
+# include <stdlib.h>
+# include <unistd.h>
 #define LIBFT_H
+
+# include <stdlib.h>
+# include <unistd.h>
 
 char *ft_strtrim(char const *s1, char const *set);
 char *ft_strjoin(char const *s1, char const *s2);
@@ -29,5 +33,6 @@ int	ft_strncmp(const char *s1, const char *s2, size_t n);
 char **ft_split(char const *s, char c);
 int ft_atoi(const char *str);
 void * ft_calloc( size_t number, size_t size );
+void *ft_itoa(int input);
 
 #endif

@@ -27,6 +27,7 @@ ft_strnstr.c \
 ft_split.c \
 ft_atoi.c \
 ft_calloc.c \
+ft_itoa.c \
 
 OBJ = $(SRC:.c=.o)
 
@@ -46,7 +47,7 @@ CC = gcc
 
 REMOVE = rm -f
 
-CFLAGS = -Wall -Werror -Wextra -I.
+CFLAGS = -Wall -Werror -Wextra
 
 NAME = libft.a
 

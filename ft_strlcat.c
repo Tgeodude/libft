@@ -6,7 +6,7 @@
 /*   By: tgeodude <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/21 15:29:54 by tgeodude          #+#    #+#             */
-/*   Updated: 2021/10/22 18:36:59 by tgeodude         ###   ########.fr       */
+/*   Updated: 2021/10/23 14:34:42 by tgeodude         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,4 +37,3 @@ size_t	ft_strlcat(char *dst, const char *src, size_t dstsize)
 	}
 	return (k);
 }
-
