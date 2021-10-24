@@ -6,49 +6,54 @@
 /*   By: tgeodude <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/23 16:29:06 by tgeodude          #+#    #+#             */
-/*   Updated: 2021/10/23 17:40:58 by tgeodude         ###   ########.fr       */
+/*   Updated: 2021/10/24 20:45:47 by tgeodude         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-long int	ft_numb(int input)
+long  int	ft_numb(int input)
 {
-	size_t	k;
+	int	i;
+	int	k;
 
-	if (input < 0)
-		k = -input;
-	else
-		k = input;
-	return (k);
+	k = 0;
+	i = -1;
+	if (input <= 0)
+		k++;
+	while (i++, input)
+		input /= 10;
+	return (i + k);
 }
 
-void	*ft_itoa(int input)
+char	*ft_itoa(int input)
 {
-	long int	k;
-	size_t	i;
-	size_t	j;
-	char	*buffer;
+	char		*s1;
+	long int	i;
+	int	k;
 
-	k = ft_numb(input);
-	i = -1;
-	j = -1;
-	while (i++, k)
-		k /= 10;
-	if (input <= 0)
-		buffer =(char *) malloc(i + 2);
-	else
-		buffer =(char *) malloc(i + 1);
-	if (!buffer)
+	k = 0;
+	if (input == -2147483648)
+	{
+		s1 = malloc(ft_numb(input) + 1);
+		s1 = "-2147483648\0";
+		return (s1);
+	}
+	i = ft_numb(input);
+	s1 = (char *)malloc(i + 1);
+	if (!s1)
 		return (NULL);
 	if (input < 0)
-		buffer[++j] = '-';
-	while (j++, i)
 	{
-		k = ft_numb(input);
-		k /= (10 * (--i));
-		buffer[j] = (k % 10) + 48;
+		s1[0] = '-';
+		k = 1;
+		input = -input;
 	}
-	buffer[j] = '\0';
-	return (buffer);
+	s1[i] = 0;
+	while(i--, input)
+	{
+		s1[i] = (input % 10) + '0';
+		input /= 10;
+	}
+	return (s1);
 }
