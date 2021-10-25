@@ -1,29 +1,31 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strtrim.c                                       :+:      :+:    :+:   */
+/*   ft_lstadd_back_bonus.c                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: tgeodude <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/10/23 14:02:40 by tgeodude          #+#    #+#             */
-/*   Updated: 2021/10/26 01:42:21 by tgeodude         ###   ########.fr       */
+/*   Created: 2021/10/25 21:11:01 by tgeodude          #+#    #+#             */
+/*   Updated: 2021/10/26 00:35:38 by tgeodude         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-char	*ft_strtrim(char const *s1, char const *set)
+void	ft_lstadd_back(t_list **lst, t_list *new)
 {
-	char			*s2;
-	unsigned int	i;
+	t_list	*lst1;
 
-	if (!s1 || !set)
-		return (NULL);
-	while (*s1 && ft_strchr(set, *s1))
-		s1++;
-	i = ft_strlen(s1);
-	while (i && ft_strchr(set, s1[i]))
-		i--;
-	s2 = ft_substr((char *)s1, 0, i + 1);
-	return (s2);
+	if (lst && new)
+	{
+		lst1 = *lst;
+		if (*lst)
+		{
+			while (lst1->next)
+				lst1 = lst1->next;
+			lst1->next = new;
+		}
+		else
+			*lst = new;
+	}
 }
